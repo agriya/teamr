@@ -1,0 +1,9 @@
+{
+	"name": "VideoExternalEmbedLessons", 
+	"class": "fa fa-2x fa-file-video-o",
+	"description": "By enabling this plugin, instructor can add video lesson of external sites like from YouTube, Vimeo etc (using embbed code).",
+	"dependencies": "Courses",
+	"module_id": "717",
+	"module_hash": "dcf8a1d5d82adee5bed4a3625d3c49a8",
+	"display_order": "3"
+}

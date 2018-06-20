@@ -1,0 +1,23 @@
+<section class="clearfix ng-scope" ng-show="model.loading === false">
+	<div class="well">
+		<div class="row">
+			<div class="col-md-11 col-sm-12 col-xs-12 nav navbar-right">
+					<section class="clearfix panel">
+						<div class="container">			
+							<course-navbar></course-navbar>		
+							<div class="">
+							<div class="tab-content col-sm-10 col-xs-12 col-md-10 clearfix" ng-if="model.loading === false">	
+								<div class="tab-pane active" id="course_roadmap">
+									<div class="panel well-sm">	
+										<p ng-bind-html="model.courseRoadmap.content"></p>
+									</div>
+								</div>		
+							</div>
+						  </div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,188 @@
+<!--main section start-->
+  <main id="main" class="main">
+    <div banner position="topBanner" ng-if="$root.settings['site.enabled_plugins'].indexOf('Banner') > -1"></div>
+    <section class="clearfix" ng-show="model.loading === false">
+    <div class="well">
+      <div class="row">
+        <div class="col-md-11 col-sm-12 col-xs-12 nav navbar-right">
+			<div class="panel clearfix">
+				<div class="col-xs-12 max-img">
+					<div class="course-bg bg-danger clearfix row bg-primary">
+						<!-- course image when is_from_mooc_affiliate false and promo video not enabled -->
+						<div ng-if="!model.course.video_url && model.course.is_from_mooc_affiliate !== 1">
+							<div ng-if="!model.course.image_hash" class="course-view">
+								<div class="well-lg hidden-xs"></div>
+								<div class="well-lg hidden-xs"></div>
+								<div class="well-lg"></div>
+								<div class="well-sm navbar-btn"></div>
+								<div class="well-lg hidden-xs"></div>
+								<div class="well-lg hidden-xs"></div>
+								<div class="well-lg hidden-xs"></div>
+								<div class="well-sm navbar-btn hidden-xs"></div>
+								<div class="well-sm"></div>
+							</div>
+							<img ng-if="model.course.image_hash" ng-src='{{$root.site_url}}img/large_thumb/Course/{{model.course.image_hash}}' class="img-responsive center-block">
+						</div>
+						<!-- course image when is_from_mooc_affiliate true -->
+						<div ng-if="model.course.is_from_mooc_affiliate === 1">
+							<div ng-if="!model.course.course_image" class="course-view">
+								<div class="well-lg hidden-xs"></div>
+								<div class="well-lg hidden-xs"></div>
+								<div class="well-lg"></div>
+								<div class="well-sm navbar-btn"></div>
+								<div class="well-lg hidden-xs"></div>
+								<div class="well-lg hidden-xs"></div>
+								<div class="well-lg hidden-xs"></div>
+								<div class="well-sm navbar-btn hidden-xs"></div>
+								<div class="well-sm"></div>
+							</div>
+							<img ng-if="model.course.course_image" ng-src="{{model.course.course_image}}" class="img-responsive center-block">
+						</div>
+						<!-- course image when promo video failed or videolessonplugin or promo video enabled settings disabled -->
+						<div ng-if="model.course.video_url && is_from_mooc_affiliate !== 1" >
+							<div ng-if="(model.course.video_url && model.course.is_promo_video_convert_error !== 0 || model.course.is_promo_video_converting_is_processing !== 0) || ($root.settings['site.enabled_plugins'].indexOf('VideoLessons') === -1 && model.course.video_url) || ($root.settings['video.is_enabled_promo_video'] === '0' && model.course.video_url) && model.course.is_from_mooc_affiliate !== 1" class="course-view">
+								<div ng-if="!model.course.image_hash" class="course-view">
+									<div class="well-lg hidden-xs"></div>
+									<div class="well-lg hidden-xs"></div>
+									<div class="well-lg"></div>
+									<div class="well-sm navbar-btn"></div>
+									<div class="well-lg hidden-xs"></div>
+									<div class="well-lg hidden-xs"></div>
+									<div class="well-lg hidden-xs"></div>
+									<div class="well-sm navbar-btn hidden-xs"></div>
+									<div class="well-sm"></div>
+								</div>
+								<img ng-if="model.course.image_hash" ng-src='{{$root.site_url}}img/large_thumb/Course/{{model.course.image_hash}}' class="img-responsive center-block">
+							</div>
+							<!-- course image when is_from_mooc_affiliate false and promo video enabled and videolessons plugin should be enabled -->
+							<div ng-if="model.course.video_url && model.course.is_promo_video_convert_error === 0 && model.course.is_promo_video_converting_is_processing === 0 && model.course.is_from_mooc_affiliate !== 1 && $root.settings['site.enabled_plugins'].indexOf('VideoLessons') > -1 && $root.settings['video.is_enabled_promo_video'] === '1'">
+								<div class="well-sm"></div>
+								<div class="well-sm hidden-xs"></div>
+								<div class="col-md-12 clearfix">
+									<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+										<video id="video"  ng-src="{{model.course.video_url}}" controls="true"></video>
+									</div>
+								</div>
+								<h3 class="h2 navbar-btn text-center"><strong>{{model.course.title}}</strong></h3>
+								<p class="h4 text-center"><strong>{{model.course.subtitle}}</strong></p>
+								<div class="h2 list-group-item-heading text-center">
+									<strong><amount-display amount='{{model.course.price}}' fraction='2' is-course-price='yes'></amount-display></strong>
+								</div>
+								<div class="text-center">
+									 <payment-buttons  user-id="{{model.course.user_id}}" btn-link="{{model.course.mooc_affiliate_course_link}}" instruction-level='{{model.course.instructional_level_id}}' title='{{model.course.title}}' slug='{{model.course.slug}}' course-price='{{model.course.price}}' course-id='{{model.course.id}}' ng-if='model.course.id'></payment-buttons>														
+								</div>
+								<div class="well-lg hidden-xs"></div>
+							</div>
+						</div>
+						
+					
+					</div>					
+					  <div class="course-bg-caption" ng-if="!model.course.video_url || ((model.course.video_url && model.course.is_promo_video_convert_error !== 0 || model.course.is_promo_video_converting_is_processing !== 0) || ($root.settings['site.enabled_plugins'].indexOf('VideoLessons') === -1 && model.course.video_url) || ($root.settings['video.is_enabled_promo_video'] === '0' && model.course.video_url))">
+						<h3 class="h2 navbar-btn text-center"><strong>{{model.course.title}}</strong></h3>
+						<p class="h4 text-center"><strong>{{model.course.subtitle}}</strong></p>
+						<div class="h2 list-group-item-heading text-center">
+							<strong><amount-display amount='{{model.course.price}}' fraction='2' is-course-price='yes'></amount-display></strong>
+						</div>
+						<div class="text-center">
+							 <payment-buttons  user-id="{{model.course.user_id}}" btn-link="{{model.course.mooc_affiliate_course_link}}" instruction-level='{{model.course.instructional_level_id}}' title='{{model.course.title}}' slug='{{model.course.slug}}' course-price='{{model.course.price}}' course-id='{{model.course.id}}' ng-if='model.course.id'></payment-buttons>														
+						</div>
+						<div class="well-lg hidden-xs"></div>
+						<div class="well-lg hidden-xs"></div>
+						<div class="well-lg hidden-xs"></div>
+						<div class="well-sm navbar-btn hidden-xs"></div>
+						<div class="well-sm"></div>
+					  </div>
+				
+					<div class="well-sm"></div>
+					<div class="col-xs-12 navbar-btn clearfix">
+						<ul class="list-inline">
+						  <li ng-if="model.course.category_name"><a ui-sref="CourseSearch({ category_id: model.course.category_id })" class="btn btn-default btn-sm"
+						  title="{{model.course.category_name}}"><span class="text-danger"><strong>{{model.course.category_name}}</strong></span></a>
+							<div class="well-sm visible-xs"></div>
+						  </li>
+						  <li ng-if="model.course.instructional_level_name"><a href="#!/courses/search?instructionLevel={{model.course.instructional_level_id}}" class="btn btn-default btn-sm" title="{{model.course.instructional_level_name}}"><span class="text-info"><strong>{{model.course.instructional_level_name}}</strong></span></a></li>
+						  <li>
+						    <course-wishlist course-wishlist='model.course' wishlist-type='heartWithText' wishlist-label={{'Wishlist'|translate}} wishlisted-label={{'Wishlisted'|translate}}  ng-if="model.course && $root.settings['site.enabled_plugins'].indexOf('CourseWishlist') > -1"></course-wishlist>
+						  </li>
+						  <li class="pull-right">
+							<social-share share-title='{{model.course.title}}' share-style='ListInline' share-link = '#!/course/{{model.course.id}}/{{model.course.slug}}' ng-if="model.course.id && $root.settings['site.enabled_plugins'].indexOf('SocialShare') > -1"></social-share>
+						  </li>
+						  <li ng-if="$root.settings['site.enabled_plugins'].indexOf('RatingAndReview') > -1 && model.course.is_from_mooc_affiliate !== 1" class="pull-right">
+							<div >
+								<p class="show navbar-btn">
+								<rating-stars average-rating='{{model.course.average_rating}}' ng-click="gotoAnchorLink($event,'reviews',model.course.course_user_feedback_count)" ng-if="model.course && $root.settings['site.enabled_plugins'].indexOf('RatingAndReview') > -1" ></rating-stars><span>&nbsp;({{model.course.course_user_feedback_count}} {{'ratings'|translate}})</span>  </p>
+							</div>
+						  </li>
+						</ul>
+						<hr>
+					</div>
+				</div>
+				<div class="col-md-8 col-sm-12 max-img">
+					<div class="col-xs-12">
+						<div class="clearfix" ng-show='model.course.description !== null && model.course.description'>
+							<h3 class="list-group-item-heading"><strong>{{'About this Course'|translate}}</strong></h3>
+							<p class="" ng-bind-html="model.course.description"></p>
+						</div>
+						<div class="navbar-btn clearfix list-group-item-text" ng-show="WhatActionsStudentsHaveToPerformBeforeBegin !== '' && WhatActionsStudentsHaveToPerformBeforeBegin !== null">
+							<h4><strong>{{'What are the requirements?'|translate}}</strong></h4>
+							<p class="" ng-bind-html="WhatActionsStudentsHaveToPerformBeforeBegin"></p>  
+						</div>
+						<div class="navbar-btn clearfix list-group-item-text" ng-show="studentsWillBeAbleTo !== '' && studentsWillBeAbleTo !== null">
+							<h4><strong>{{'What am I going to get from this course?'|translate}}</strong></h4>
+							<p class="" ng-bind-html="studentsWillBeAbleTo"></p>
+						</div>
+						<div class="navbar-btn clearfix list-group-item-text" ng-show="whoShouldTakeThisCourseAndWhoShouldNot !== '' && whoShouldTakeThisCourseAndWhoShouldNot !== null">
+							<h4><strong>{{'What is the target audience?'|translate}}</strong></h4>
+							<p class="" ng-bind-html="whoShouldTakeThisCourseAndWhoShouldNot"></p>
+						</div>
+						<div class="well-sm navbar-btn"></div>
+						   <online-lessons ng-if="model.course.id"></online-lessons>
+						<div class="well-sm navbar-btn"></div>
+						<div id="reviews">
+							<course-feedback course-id='{{model.course.id}}' ng-if="model.course.id && $root.settings['site.enabled_plugins'].indexOf('RatingAndReview') > -1"></course-feedback>	
+						</div>
+						<!-- comments section -->
+						<div class="well-sm navbar-btn"></div>
+						<div ng-if="$root.settings['site.enabled_plugins'].indexOf('Comments') > -1 && ($root.settings['facebook.is_enabled_facebook_comment'] === '1'|| $root.settings['disqus.is_enabled_disqus_comment'] === '1')">
+							<facebook-comments ng-if="$root.settings['facebook.comments.api_key'] && $root.settings['facebook.is_enabled_facebook_comment'] === '1'"></facebook-comments>			
+							<dir-disqus config="disqusConfig" ng-if="model.course.id && $root.settings['disqus.comments.shortname'] && $root.settings['disqus.is_enabled_disqus_comment'] === '1'" ></dir-disqus>
+						</div>
+						<div class="well-lg"></div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12 col-xs-12" ng-show="model.course.user_id">
+					<div class="media" ng-if="model.course.user_id">					
+					<h3 class="list-group-item-heading"><strong>{{'Teacher'|translate}}</strong></h3>
+					  <div class="pull-right">
+						<div class="navbar-btn clearfix"></div>
+						<profile-image  user-image-hash='model.course.user_image_hash' user-display-name='{{model.course.displayname}}' user-profile-id='model.course.user_id' ng-if='model.course' user-profile-thumb='normal_thumb' image-type ='imagecircle'></profile-image>
+						</div>
+					  <div class="media-body">
+						<profile-name user-display-name='model.course.displayname' user-profile-id='model.course.user_id' ng-if='model.course.user_id' user-designation='yes' user-designation-text='{{model.course.designation}}'></profile-name>
+						<div>
+						<ul class="list-inline">
+							<li ng-show="model.user_profile.twitter_profile_link"><a href="{{model.user_profile.twitter_profile_link}}" target="_blank"  class="text-muted"><span class="fa-stack fa-lg"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-twitter fa-stack-1x fa-inverse"></i> </span> </a></li>
+							<li ng-show="model.user_profile.google_plus_profile_link"><a href="{{model.user_profile.google_plus_profile_link}}" target="_blank" class="text-muted"> <span class="fa-stack fa-lg"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i> </span></a></li>
+							<li ng-show="model.user_profile.facebook_profile_link"><a href="{{model.user_profile.facebook_profile_link}}" target="_blank" class="text-muted"><span class="fa-stack fa-lg"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-facebook fa-stack-1x fa-inverse"></i> </span></a></li>
+							<li ng-show="model.user_profile.youtube_profile_link"><a href="{{model.user_profile.youtube_profile_link}}" target="_blank" class="text-muted"><span class="fa-stack fa-lg"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-youtube fa-stack-1x fa-inverse"></i> </span> </a></li>
+							<li ng-show="model.user_profile.website"><a href="{{model.user_profile.website}}" target="_blank" class="text-muted"><span class="fa-stack fa-lg"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-globe fa-stack-1x fa-inverse"></i> </span> </a></li>
+							<li ng-show="model.user_profile.linkedin_profile_link"><a href="{{model.user_profile.linkedin_profile_link}}" target="_blank"  class="text-muted"><span class="fa-stack fa-lg"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i> </span> </a></li>
+						</ul>
+						</div>
+						<p class="" ng-if="model.user_profile.biography" ng-bind-html="model.user_profile.biography | nl2br"></p>
+					  </div>
+					</div>
+				
+					<div banner position="courseBanner" ng-if="$root.settings['site.enabled_plugins'].indexOf('Banner') > -1" class="max-img"></div>
+				</div>
+			</div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <hr class="list-group-item-heading list-group-item-text">
+	<section ng-show="model.loading === false">
+		<div banner position="bottomBanner" ng-if="$root.settings['site.enabled_plugins'].indexOf('Banner') > -1"></div>
+	</section>
+  </main>
+  <!--main section End-->

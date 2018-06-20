@@ -1,0 +1,11 @@
+<div class="show clearfix">
+	<a ng-if="current_category_id === ''" href="javascript:void(0)" title="{{'Topics'|translate}}" class="h5 list-group-item-text list-group-item-heading text-muted dropdown-toggle" data-toggle="dropdown">
+		<strong> {{'Topics'|translate}} <i class="fa fa-angle-down fa-lg fa-fw"></i> </strong>
+	</a>
+	<a ng-repeat="parentCategory in model.common.parentCategories.data" ng-if="current_category_id !== '' " href="javascript:void(0)" title="{{parentCategory.sub_category_name}}" class="h5 list-group-item-text list-group-item-heading text-muted dropdown-toggle" data-toggle="dropdown">
+		<strong ng-if="parentCategory.id === current_category_id"> {{parentCategory.sub_category_name}} <i class="fa fa-angle-down fa-lg fa-fw"></i> </strong>
+	</a>
+	<ul class="dropdown-menu text-left">
+		<li ng-repeat="parentCategory in model.common.parentCategories.data"><a ui-sref="CourseSearch({ category_id: parentCategory.id })" title="{{parentCategory.sub_category_name}}"><strong>{{parentCategory.sub_category_name}}</strong></a></li>
+	</ul>
+</div>

@@ -1,0 +1,9 @@
+{
+	"name": "Payout", 
+	"class": "fa fa-2x fa-google-wallet",
+	"description": "By enabling this plugin, instructor can connected with payment gateways and the amount will be credited directly to their account while the learner made the course purchase through the same connected gateway. The site commission will also credited directly to the administrator account. If it is not connected then the amount will be added into the instructor's site available balance, later the instructor can get the money only by giving the withdrawal request to the administrator.",
+	"dependencies": "CourseCheckout",
+	"module_id": "747",
+	"module_hash": "c237eea46348650f19fe43b5d9ee1fc4",
+	"display_order": "9"
+}

@@ -1,0 +1,9 @@
+{
+	"name": "SocialLogins", 
+	"class": "fa fa-2x fa-sign-in",
+	"description": "By enabling this plugin, allow users to login with their social logins like facebook, twitter or google+.",
+	"dependencies": "",
+	"module_id": "719",
+	"module_hash": "30d29530c03625fe5b972d55ea0bb9f2",
+	"display_order": "17"
+}

@@ -1,0 +1,16 @@
+<div class="media-heading">
+<a href="#!/user/{{user_id}}/{{model.userDisplayName|slugify}}/" title="{{model.userDisplayName}}" class="{{model.userNameClass}}" ng-if="$root.settings['site.enabled_plugins'].indexOf('UserProfile') > -1">
+<span>
+	<strong ng-if="model.userSmallText !== 'true'">{{model.userDisplayName}}</strong>
+	<strong ng-if="model.userSmallText === 'true'" ng-class="{'text-info': model.userSmallText === 'true'}"><small>{{model.userDisplayName}}</small></strong>
+</span></a>
+
+
+<span title="{{model.userDisplayName}}" ng-if="$root.settings['site.enabled_plugins'].indexOf('UserProfile') === -1" class="{{model.userNameClass}}" >
+	<strong ng-if="model.userSmallText !== 'true'">{{model.userDisplayName}}</strong>
+	<strong ng-if="model.userSmallText === 'true'"><small>{{model.userDisplayName}}</small></strong>
+</span>
+
+</div>
+<p ng-if="model.userDesignation === 'yes' && model.userDesignationText && $root.settings['site.enabled_plugins'].indexOf('UserProfile') > -1">{{model.userDesignationText}}</p>
+

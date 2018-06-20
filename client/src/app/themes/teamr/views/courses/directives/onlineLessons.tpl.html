@@ -1,0 +1,44 @@
+<h4 ng-if='model.OnlineCourse.data.length'><strong>{{'Curriculum'|translate}}</strong></h4>
+<div class="media list-group-item-heading" ng-show="model.OnlineCourse.data.length" ng-repeat="OnlineCourse in model.OnlineCourse.data">
+		<div ng-if="OnlineCourse.is_chapter == 1" class="pull-left">
+			<span class="fa-stack fa-2x">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-arrow-right fa-stack-1x fa-inverse text-center"></i>
+			</span> 
+		</div>
+		<div class="media-body">
+			<div ng-if="OnlineCourse.is_chapter == 1">
+			<div class="media-heading">
+				<div class="navbar-btn clearfix list-group-item-heading"></div>
+				<span href="#"  title="{{OnlineCourse.lesson_name}}" class="h4"><strong>{{OnlineCourse.lesson_name}}</strong></span> 
+			</div>
+			<p ng-if="OnlineCourse.lesson_description" class="navbar-btn" ng-bind-html='OnlineCourse.lesson_description | nl2br'></p>
+			</div>
+			<div class="clearfix list-group-item-heading"></div>
+			<div ng-if="OnlineCourse.is_chapter == 0">
+			<div  class="collapse panel in" role="tabpanel" aria-labelledby="headingOne">
+				<ul class="list-group">
+					<li class="list-group-item well-sm navbar-btn clearfix list-group-item-heading list-group-item-text">
+							<div class="col-sm-1 row"> 								
+								<span class="text-muted" ><i class="fa fa-download fa-2x" ng-if='OnlineCourse.online_lesson_type_id === 5'></i>
+									<i class="fa fa-file-video-o fa-2x" ng-if='OnlineCourse.online_lesson_type_id === 4'> </i>
+									<i class="fa fa-play-circle-o fa-2x"  ng-if='OnlineCourse.online_lesson_type_id === 3'></i>
+									<i class="fa fa-edit fa-2x"  ng-if='OnlineCourse.online_lesson_type_id === 1'></i>
+									<i class="fa fa-file fa-2x"  ng-if='OnlineCourse.online_lesson_type_id === 2'></i>
+									<i class="fa fa-edit fa-2x"  ng-if='OnlineCourse.online_lesson_type_id === 6'></i>
+									<i class="fa fa-edit fa-2x"  ng-if='!OnlineCourse.online_lesson_type_id'></i>
+								</span>
+							</div>
+							<div class="col-sm-11"> 
+								<div  ng-if='OnlineCourse.is_preview === 1' >
+									<a href="#!/{{OnlineCourse.course_slug}}/learn/{{OnlineCourse.course_id}}?lesson={{OnlineCourse.id}}" title="{{'Preview'|translate}}" class="btn btn-sm btn-primary pull-right">{{'Preview'|translate}}</a> 
+								</div>
+								<span  title="{{OnlineCourse.lesson_name}}" class="h5"><strong>{{OnlineCourse.lesson_name}}</strong></span>
+								<p ng-if='OnlineCourse.lesson_description' class="navbar-btn" ng-bind-html='OnlineCourse.lesson_description | nl2br'></p>						
+							</div>
+					</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+</div>

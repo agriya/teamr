@@ -1,0 +1,182 @@
+ <main id="main" class="main">
+    <section class="bg-success">
+		<div class="well-lg"></div><div class="well-lg"></div>
+		<div class="container">
+			<div class="col-sm-6 col-xs-12">
+				<div class="well-lg"></div>
+				<div class="well-lg"></div>
+				<div class="text-left">
+				  <h3 class="h1 fa-inverse"><strong>{{'Learn Web Design, Coding And Much More'| translate}}</strong></h3>
+				  <div class="navbar-btn clearfix list-group-item-text"></div>
+				  <p class="h4 fa-inverse"><strong>{{'Get your free trial started today!'| translate}}</strong></p>
+				</div>
+			</div>
+			<div class="col-sm-6 col-xs-12">
+				<div class="well-lg"></div><div class="well-sm"></div>
+				<div class="panel panel-default panel-primary">
+				  <div class="panel-heading well">
+					<h3 class="panel-title text-center"><span class="fa-inverse text-center"><strong>{{'Get Started today!'| translate}}</strong></span></h3>
+				  </div>
+				  <div class="panel-body">
+					<form method="post" class="form-inline" name="freetrail" ng-submit="model.claimFreeTrail(model.freetrail);">
+					  <div class="center-block text-center navbar-btn col-sm-6" ng-class="{ 'has-error' : freetrail.displayname.$invalid && freetrail.displayname.$dirty }">
+						<label class="sr-only">{{'User name '| translate}}*</label>
+						<input type="text" name="displayname" class="form-control" placeholder="{{'First name'|translate}} *" ng-model="model.freetrail.displayname" required>
+						<div class="help-block text-danger" ng-if="freetrail.displayname.$dirty" ng-messages="freetrail.displayname.$error">
+							<div ng-message="required">{{'Required'|translate}}.</div>
+						</div>
+					  </div>
+					 <div class="center-block text-center navbar-btn col-sm-6" ng-class="{ 'has-error' : freetrail.lastname.$invalid && freetrail.lastname.$dirty }">
+						<label class="sr-only">{{'Last name'| translate}} *</label>
+						<input type="text" name="lastname" class="form-control" placeholder="{{'Last name'|translate}} *" ng-model="model.freetrail.last_name" required>
+						<div class="help-block text-danger" ng-if="freetrail.lastname.$dirty" ng-messages="freetrail.lastname.$error">
+							<div ng-message="required">{{'Required'|translate}}.</div>
+						</div>
+					  </div>
+					<div class="center-block text-center col-sm-12" ng-class="{ 'has-error' : freetrail.email.$invalid && freetrail.email.$dirty }">
+					<label class="sr-only">{{'Email address'| translate}} *</label>
+					<input type="email" name="email" class="form-control" placeholder="{{'Email address'|translate}} *" ng-model="model.freetrail.email" required>
+					<div class="help-block text-danger" ng-if="freetrail.email.$dirty" ng-messages="freetrail.email.$error">
+							<div ng-message="required">{{'Required'|translate}}.</div>
+						</div>
+					</div>
+					<hr class="col-xs-11">
+					<button type="submit" class="btn btn-primary btn-lg"> <strong>{{'Claim Your Free Trail'| translate}}</strong> <i class="fa fa-caret-right fa-sm"></i></button>
+					</form>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="well-lg"></div><div class="well-sm"></div>
+    </section>
+	<section class="clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="well-lg"></div>
+          <div class="text-center">
+            <h3><strong>{{'How It Works'| translate}}</strong></h3>
+            <div class="navbar-btn clearfix list-group-item-text"></div>
+            <p> <strong>{{'Achieve your dreams and change the world '| translate}}</strong></p>
+            <div class="well-lg"></div>
+				<div class="col-xs-10 col-xs-offset-1">
+					<div class="col-sm-5 well-lg bg-danger">
+						<img src="assets/img/works-img1.png" alt="[Image:{{'Works'| translate}}]" title="{{'Works'| translate}}" class="img-responsive center-block"/>
+					</div>
+					<div class="col-sm-7">
+						<div class="well-sm"></div>
+						<div class="col-xs-12">
+							 <h4 class="text-left"><strong>{{'Courses'| translate}}</strong></h4>
+							 <p class="text-left"><strong>{{'Learn from over 1000 videos created by expert teachers on web design, coding, business, and much more. Our library is continually refreshed with the latest on web technology so you\'ll never fall behind.'| translate}}</strong></p>
+						</div>
+					</div>
+				</div>
+				<div class="well-lg clearfix"></div>
+				<div class="col-xs-10 col-xs-offset-1">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<div class="well-sm"></div>
+						<div class="col-xs-12 col-sm-5 navbar-right well-lg bg-info">
+							<img src="assets/img/works-img2.png" alt="[Image: {{'Works'|translate}}]" title="{{'Works'|translate}}" class="img-responsive center-block"/>
+						</div>
+						<div class="col-xs-12 col-sm-7 navbar-right">
+							<div class="well-sm"></div>
+							 <h4 class="text-left"><strong>{{'Learn'| translate}}</strong></h4>
+							 <p class="text-left"><strong>{{'Subscribe our plan and get unlimited access to the entire catalog and their videos lessons and you\'ll be continually refreshed your skillset.'| translate}}</strong></p>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+      </div>
+    </section>
+    <section class="clearfix">
+      <div class="container">
+        <div class="col-xs-12">
+          <div class="well-lg"></div>
+          <div class="text-center">
+            <h3><strong>{{'Some of the Awesome Stuff You\'ll Learn'| translate}}</strong></h3>
+            <div class="navbar-btn clearfix list-group-item-text"></div>
+            <p>{{'The fast, easy, and affordable way to build your skills'| translate}}</p>
+            <div class="navbar-btn clearfix"></div>
+            <div class="row">
+				<div class="col-sm-3 col-xs-12 well-lg">
+					<img src="assets/img/Learn-img1.png" alt="[Image: {{'Learn'| translate}}]" title="{{'Learn'| translate}}" class="img-circle img-responsive">
+					<div class="well-sm navbar-btn"></div>
+					<h4 class="h5 text-left"><strong>{{'Build a Website'| translate}}</strong></h4>
+					<p class="text-left text-muted navbar-btn"><strong>{{'You\'ll learn the basics to building a website with an introduction to text editors, basic HTML tabs, and advanced HTML skills.'| translate}}</strong></p>
+					<a href="#!/courses/search" title="{{'Get Started'| translate}}" class="navbar-btn pull-left"><span class="text-info"><strong>{{'Get Started'| translate}}<strong></span></a>
+				</div>
+				<div class="col-sm-3 col-xs-12 well-lg">
+					<img src="assets/img/Learn-img2.png" alt="[Image: {{'Learn'| translate}}]" title="{{'Learn'| translate}}" class="img-circle img-responsive">
+					<div class="well-sm navbar-btn"></div>
+					<h4 class="h5 text-left"><strong>{{'Learn to Code'| translate}}</strong></h4>
+					<p class="text-left text-muted navbar-btn"><strong>{{'Learn technologies such as Ruby on Rails to help you build the next world changing product'| translate}}.</strong></p>
+					<a href="#!/courses/search" title="{{'Get Started'| translate}}" class="navbar-btn pull-left"><span class="text-info"><strong>{{'Get Started'| translate}}<strong></span></a>
+				</div>
+			    <div class="col-sm-3 col-xs-12 well-lg">
+					<img src="assets/img/Learn-img3.png" alt="[Image: {{'Learn'| translate}}]" title="{{'Learn'| translate}}" class="img-circle img-responsive">
+					<div class="well-sm navbar-btn"></div>
+					<h4 class="h5 text-left"><strong>{{'Build an App'| translate}}</strong></h4>
+					<p class="text-left text-muted navbar-btn"><strong>{{'This is the spot to learn how to build apps. You\'ll learn the language, tools, and necessary concepts to get your app out the door.'| translate}}</strong></p>
+					<a href="#!/courses/search" title="{{'Get Started'| translate}}" class="navbar-btn pull-left"><span class="text-info"><strong>{{'Get Started'| translate}}<strong></span></a>
+				</div>
+				<div class="col-sm-3 col-xs-12 well-lg">
+					<img src="assets/img/Learn-img4.png" alt="[Image: {{'Learn'| translate}}]" title="{{'Learn'| translate}}" class="img-circle img-responsive">
+					<div class="well-sm navbar-btn"></div>
+					<h4 class="h5 text-left"><strong>{{'Start a Business'| translate}}</strong></h4>
+					<p class="text-left text-muted navbar-btn"><strong>{{'Find out how to get your business off on the right foot. Topics include corporate structure, marketing, finance, and more!'| translate}}</strong></p>
+					<a href="#!/courses/search" title="{{'Get Started'| translate}}" class="navbar-btn pull-left"><span class="text-info"><strong>{{'Get Started'| translate}}<strong></span></a>
+				</div>
+            </div>
+          </div>
+        </div>
+      </div>
+	  <div class="well-lg"></div>
+    </section>
+    <!--sectin3-->
+	
+	<section class="well clearfix list-group-item-heading">
+      <div class="clearfix">
+        <div class="container">
+			<div class="row">
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="well-lg"></div>
+					<em class="h4 italicized"> " {{'Teamr has a library of lessons that goes far beyond the surface, touching nearly every aspect of how to design and develop for the web and iOS.'| translate}} " </em>
+					<div class="well-sm clearfix"></div>
+					<div class="media navbar-btn"> 
+						<div class="pull-left"> <a href="#"> <img src="assets/img/shay-howe.jpg" 
+						class="img-circle img-responsive center-block"></a> </div> 
+						<div class="media-body">
+							<h4 class="media-heading"><strong>{{'Shay Howe'| translate}}</strong></h4>  
+							<p class="text-muted"><strong ng-bind-html="'Designer & Develper'|translate|to_trusted"></strong></p>
+						</div> 
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="well-lg"></div>
+					<em class="h4 italicized"> " {{'Wondering how I never heard of @AgriyaTeamr until now!... There\'s a breadth of free, applicable skills worth learning. #Innovate'| translate}} " </em>
+					<div class="well-sm clearfix"></div>
+					<div class="media navbar-btn"> 
+						<div class="pull-left"> <a href="#"> <img src="assets/img/shawn-michael.jpg" 
+						class="img-circle img-responsive center-block"></a> </div> 
+						<div class="media-body">
+							<h4 class="media-heading"><strong>{{'Shawn Michael'| translate}}</strong></h4>  
+							<p class="text-muted"><strong>{{'iPhone App Developer'|translate}}</strong></p>
+						</div> 
+					</div>
+				</div>
+			</div>
+        </div>
+      </div>
+    </section>
+	
+	<section class="clearfix" ng-if="$root.settings['site.enabled_plugins'].indexOf('Subscriptions') > -1">
+		<div class="bg-success">
+			<div class="well-lg"></div>
+			<div class="container">
+				<subscriptions-plans ng-if="$root.settings['site.enabled_plugins'].indexOf('Subscriptions') > -1"></subscriptions-plans>
+			</div>
+			<div class="clearfix"></div><div class="well-sm navbar-btn"></div>
+		</div>
+    </section>
+	<div banner position="bottomBanner" ng-if="$root.settings['site.enabled_plugins'].indexOf('Banner') > -1"></div>
+  </main>

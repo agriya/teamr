@@ -1,0 +1,9 @@
+{
+	"name": "CourseCheckout", 
+	"class": "fa fa-2x fa-money",
+	"description": "By enabling this plugin, instructor or site can fix the price of the course and learners will pay and access the course. If this plugin is not enabled, then the site will running like free.",
+	"dependencies": "",
+	"module_id": "748",
+	"module_hash": "6eadf536d5770cc36e8ea3729383b959",
+	"display_order": "8"
+}

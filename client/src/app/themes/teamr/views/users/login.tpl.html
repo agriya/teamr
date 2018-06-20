@@ -1,0 +1,50 @@
+<div class="well-lg" ng-class="{'container': currentPageType === 'page'}">	
+  <div class="row">
+    <div class="center-form" ng-class="{'col-xs-12 col-sm-8 col-sm-offset-2': currentPageType === 'page' ,'panel': currentPageType === 'modal'}">
+      <div class="panel-body ">
+		<a data-dismiss="modal" ng-click="modalClose($event)" class="modalClose" ng-if="currentPageType === 'modal'"><i class="fa fa-lg fa-times-circle close"></i></a>
+        <div banner position="topBanner" ng-if="$root.settings['site.enabled_plugins'].indexOf('Banner') > -1 && currentPageType === 'page'"></div>
+		<h3 class="lead text-center text-primary"><strong>{{'Login to your'|translate}} {{$root.settings['site.name']}} {{'account!'|translate}}</strong></h3>
+		<hr>
+		<div class="row">
+			<div  class="col-md-offset-1 col-md-10" ng-if="$root.settings['site.enabled_plugins'].indexOf('SocialLogins') > -1">
+				<h3 class="lead text-center text-primary">{{'Login with social accounts'|translate}}</h3>
+				<social-login page-type='{{currentPageType}}'></social-login>
+			</div>
+			<div class="well-sm"></div>
+			<div class="col-md-offset-1 col-md-10" ng-if='!contentInIframe'>
+				<h3 class="lead text-center text-primary">{{'Login with your email'|translate}}</h3>
+				<form method="post" name="loginForm">
+					<div class="form-group has-feedback" ng-class="{ 'has-error' : loginForm.email.$invalid && loginForm.email.$dirty }">
+						<input class="form-control text-muted input-lg" type="email" name="email" ng-model="user.email" placeholder="{{'Email'|translate}}" required autofocus>
+						<span class="ion-at form-control-feedback"></span>
+						<div class="help-block text-danger" ng-if="loginForm.email.$dirty" ng-messages="loginForm.email.$error">
+						  <div ng-message="required">{{'Please Enter Email' | translate}}.</div>
+						  <div ng-message="email">{{'Your email address is invalid'|translate}}.</div>
+						</div>
+					</div>
+					<div class="form-group has-feedback" ng-class="{ 'has-error' : loginForm.password.$invalid && loginForm.password.$dirty }">
+						<input class="form-control text-muted input-lg" type="password" name="password" ng-model="user.password" placeholder="{{'Password'|translate}}" required>
+						<span class="ion-key form-control-feedback"></span>
+						<div class="help-block text-danger" ng-if="loginForm.password.$dirty" ng-messages="loginForm.password.$error">
+						  <div ng-message="required">{{'Password cannot be empty'|translate}}.</div>
+						</div>
+					</div>
+					<div class="col-xs-12 text-center"><button ng-click="loginUser(loginForm.$valid, user);loginForm.$setPristine()" ng-disabled="loginForm.$invalid || disableButton" class="btn btn-lg btn-success"><strong>{{'Sign in'|translate}} <span ng-show="disableButton"><i class="fa fa-spinner fa-pulse fa-lg"></i></span></strong></button></div>
+					<br/>
+					<p class="text-center text-muted">
+						<small>{{'Don\'t have an account yet?'|translate}} <a ng-if="currentPageType === 'page'" ng-href="#!/users/signup" >&nbsp;&nbsp;{{'Sign up'|translate}}</a>
+						<a ng-if="currentPageType === 'modal'" ng-click="goToState('Signup')" ng-href="#!/users/signup" >&nbsp;&nbsp;{{'Sign up'|translate}}</a>
+						</small>
+					</p>
+					<hr>
+					<p class="text-center text-muted"><a ng-href="#!/users/forgot_password" title="{{'I forgot my password'|translate}}"><span class="icon icon-help-mini"></span>{{'I forgot my password'|translate}}</a></p>
+					
+				</form>
+			</div>
+		</div>             
+      </div>
+    </div>
+  </div>
+  <div banner position="bottomBanner" ng-if="$root.settings['site.enabled_plugins'].indexOf('Banner') > -1 && currentPageType === 'page'"></div>
+</div>

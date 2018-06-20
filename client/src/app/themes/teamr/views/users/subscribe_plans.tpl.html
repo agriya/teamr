@@ -1,0 +1,115 @@
+<section>
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner" role="listbox">
+		  <div class="item active"> <img src="assets/img/banner-block.png" alt="[Image: {{'Banner-Block'| translate}}]" title="{{'Banner-Block'| translate}}">
+			<div class="well-lg"></div>
+			<div class="well-sm"></div>
+			<div class="carousel-caption">
+			  <div class="text-center">
+				<p class="h5 fa-inverse"><strong>{{'Start learning today'| translate}}</strong></p>
+				<h3 class="h1 fa-inverse navbar-btn"><strong>{{'Sign up for'| translate}} {{$root.settings['site.name']}}</strong></h3>
+			  </div>
+			  <div class="well-sm hidden-xs hidden-sm hidden-md"></div>
+				<subscriptions-plans ng-if="$root.settings['site.enabled_plugins'].indexOf('Subscriptions') > -1"></subscriptions-plans>
+			</div>
+		  </div>
+		</div>
+	</div>
+</section>
+<div banner position="topBanner" ng-if="$root.settings['site.enabled_plugins'].indexOf('Banner') > -1"></div>
+<section>
+  <div class="well-sm"></div>
+  <div class="container">
+	<div class="jumbotron">
+	  <div class="text-center">
+		<h5 class="col-sm-10 col-sm-offset-1 fa-inverse"><strong>{{'Hundreds of businesses, schools and community organizations use'| translate}} {{$root.settings['site.name']}} {{'for Organizations to fuel their successful training programs and keep their workforce sharp.'| translate}}</strong></h5>
+		<div class="well-lg"></div>
+		</div>
+	</div>
+  </div>
+</section>
+<section>
+  <div class="container">
+	<div class="navbar-btn clearfix"></div>
+	<h4 class="h3 text-center"><strong>{{'Success is in the air'| translate}}</strong></h4>
+	<div class="navbar-btn clearfix"></div>
+	<div class="navbar-btn clearfix"></div>
+	<div class="col-xs-12">
+	  <div class="col-md-4 col-sm-6">
+		<div class="well">
+		  <div class="col-xs-12">
+			<div class="text-success"><i class="fa fa-quote-left"></i></div>
+		  </div>
+		  <div class="navbar-btn clearfix"></div>
+		  <div class="navbar-btn clearfix"></div>
+		  <div class="well-sm clearfix"></div>
+		  <p class="clearfix"><span class="nav col-xs-12">{{'[...] I am so thankful that'| translate}} {{$root.settings['site.name']}} {{'has allowed me to get started and follow something that I\'m truly passionate about.'| translate}}</span></p>
+		  <div class="navbar-btn clearfix hidden-xs"></div>
+		  <div class="navbar-btn clearfix visible-sm"></div>
+		  <div class="navbar-btn clearfix list-group-item-heading hidden-xs"></div>
+		  <div class="navbar-btn clearfix visible-sm list-group-item-heading"></div>
+		  <div class="media">
+			<div class="pull-right"><a href="#" title="{{'Client1'|translate}}"><img src="assets/img/client1.jpeg" alt="[Image: {{'Client1'|translate}}]" title="{{'Client1'|translate}}" class="img-responsive img-circle" height="60" width="60"></a></div>
+			<div class="media-body">
+			  <div class="navbar-btn clearfix list-group-item-heading"></div>
+			  <div class="media-heading list-group-item-text"> <span title="{{'Jon Farrell'| translate}}" class="h5"><strong>{{'Jon Farrell'| translate}}</strong></span> </div>
+			  <span title="{{'Sydney Australia'| translate}}" class="h6">{{'Sydney Australia'| translate}}</span> </div>
+		  </div>
+		  <div class="well-lg visible-xs"></div>
+		</div>
+	  </div>
+	  <div class="col-md-4 col-sm-6">
+		<div class="well">
+		  <div class="col-xs-12">
+			<div class="text-success"><i class="fa fa-quote-left"></i></div>
+		  </div>
+		  <div class="navbar-btn clearfix"></div>
+		  <div class="navbar-btn clearfix"></div>
+		  <p>{{'Watching the'| translate}} {{$root.settings['site.name']}} {{'videos, I was having little "Ahaaa, that makes sense!" moments, the videos are broken down into just the right amount to be able to absorb, without getting too frustrated.'|translate}}</p>
+		  <div class="hidden-sm"></div>
+		  <div class="well-sm visible-sm"></div>
+		  <div class="navbar-btn clearfix visible-sm"></div>
+		  <div class="media">
+			<div class="pull-right"><a href="#" title="{{'Client2'| translate}}"><img src="assets/img/client2.jpeg" alt="[Image: {{'Client2'| translate}}]" title="{{'Client2'| translate}}" class="img-responsive img-circle" height="60" width="60"></a></div>
+			<div class="media-body">
+			  <div class="navbar-btn clearfix list-group-item-heading"></div>
+			  <div class="media-heading list-group-item-text"> <span title="Toby Powell" class="h5"><strong>{{'Toby Powell'| translate}}</strong></span> </div>
+			  <span title="{{'Sydney Australia'| translate}}" class="h6">{{'Bangkok, Thailand'| translate}}</span> </div>
+		  </div>
+		  <div class="well-lg visible-xs"></div>
+		</div>
+	  </div>
+	  <div class="col-md-4 col-sm-12">
+		<div class="well">
+		  <div class="col-xs-12">
+			<div class="text-success"><i class="fa fa-quote-left"></i></div>
+		  </div>
+		  <div class="navbar-btn clearfix"></div>
+		  <div class="navbar-btn clearfix"></div>
+		  <p>{{'I\'m starting a business based on the web, and that\'s huge to me. I am attributing this to '| translate}}      {{$root.settings['site.name']}} {{'because it gave me the skills under my belt, and the confidence to start my own business.'| translate}}</p>
+		  <div class="navbar-btn clearfix list-group-item-heading hidden-sm"></div>
+		  <div class="media">
+			<div class="pull-right"><a href="#" title="{{'Client3'| translate}}"><img src="assets/img/client3.jpeg" alt="[Image: {{'Client3'| translate}}]" title="{{'Client3'| translate}}" class="img-responsive img-circle" height="60" width="60"></a></div>
+			<div class="media-body">
+			  <div class="navbar-btn clearfix list-group-item-heading"></div>
+			  <div class="media-heading list-group-item-text"> <span title="{{'Martha Chumo'| translate}}" class="h5"><strong>{{'Martha Chumo'| translate}}</strong></span> </div>
+			  <span title="{{'Nairobi, Kenya'| translate}}" class="h6">{{'Nairobi, Kenya'| translate}}</span> </div>
+		  </div>
+		  <div class="well-lg visible-xs"></div>
+		</div>
+	  </div>
+	</div>
+  </div>
+</section>
+<section>
+  <div class="container">
+	<div class="col-xs-12">
+	  <div class="page-header"></div>
+	  <div class="text-center h3 text-success col-xs-12 col-sm-9 col-sm-offset-2"> {{$root.settings['site.name']}} {{'not only provided a great learning foundation for what I do on a daily basis... I now have friends across the globe, who I would never have met had it not been for'| translate}}{{$root.settings['site.name']}}. {{'I definitely would not be where I am today in terms of development both personally and professionally if it wasn\'t for this community.'| translate}}</div>
+	</div>
+	<div class="navbar-btn clearfix"></div>
+	<p class="h4 text-center"><strong>- {{'Graham Davidson Birmingham, England'| translate}}</strong></p>
+	<hr>
+  </div>
+</section>
+<div banner position="bottomBanner" ng-if="$root.settings['site.enabled_plugins'].indexOf('Banner') > -1"></div>

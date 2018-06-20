@@ -1,0 +1,126 @@
+<header id="header" class="header">
+	<div class="navbar navbar-default navbar-fixed-top" ng-show="$root.isHome || $root.currentURL === '/subscribe/plans' || $root.currentURL === '/users/login' || $root.currentURL === '/users/signup?subscription_id' || $root.currentURL === '/users/forgot_password' || $root.currentURL === '/users/signup'">
+      <div class="container">
+        <div class="row">
+          <div class="navbar-header">
+            <div class="navbar-btn clearfix visible-xs"></div>
+            <button data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle" type="button"><span class="sr-only">{{'toggle navigation'| translate}}</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            <h1>
+				<a href="#!/" title="{{$root.settings['site.name']}}" ng-show="!isAuth"><img src="assets/img/logo.png" alt="[Image: {{$root.settings['site.name']}}]" title="{{$root.settings['site.name']}}" class="img-responsive"/></a>
+				<a href="#!/courses/search" title="{{$root.settings['site.name']}}" ng-show="isAuth"><img src="assets/img/logo.png" alt="[Image: {{$root.settings['site.name']}}]" title="{{$root.settings['site.name']}}" class="img-responsive"/></a>
+			</h1>
+          </div>
+          <nav class="collapse navbar-collapse navbar-right">
+            <ul class="nav navbar-nav text-center" ng-show="!isAuth">
+			 <li ng-show="$root.settings['site.enabled_plugins'].indexOf('Instructor') > -1"><a  href="#!users/login" class="h5 navbar-btn" title="{{'Become an Instructor'|translate}}">{{'Become an Instructor'|translate}}</a></li>
+              <li><a ng-href="#!/users/login" ng-click="modalLogin($event)" title="{{'Sign in'| translate}}" class="h5 navbar-btn">{{'Sign in'| translate}}</a></li>
+			  <li ng-if="$root.settings['site.enabled_plugins'].indexOf('Subscriptions') === -1"><a ng-href="#!/users/signup" class="h5 navbar-btn" ng-click="modalSignup($event)" title="{{'Signup'| translate}}">{{'Signup'| translate}}</a></li>
+              <li ng-if="$root.settings['site.enabled_plugins'].indexOf('Subscriptions') > -1"><a ng-href="#!/subscribe/plans" title="{{'Pricing'| translate}}" class="h5 navbar-btn"><span class="text-success">{{'Pricing'| translate}}</span></a></li>
+            </ul>
+			<ul class="nav navbar-nav navbar-btn" ng-show="isAuth">
+				 <li ng-show="$root.auth.providertype === 'admin'"><a href="ag-admin" title="{{'Admin Dashboard'|translate}}" class="h5 text-muted">{{'Admin Dashboard'| translate}}</a></li>
+				 <li ng-show="model.userDetails.is_teacher === 1 && $root.settings['site.enabled_plugins'].indexOf('Instructor') > -1"><a href="#!/my-courses/teaching" title="{{'Instructor Dashboard'|translate}}" class="h5 text-muted">{{'Instructor Dashboard'| translate}}</a></li>
+				 <li ng-show="model.userDetails.is_teacher !== 1 && $root.settings['site.enabled_plugins'].indexOf('Instructor') > -1"><a href="#!/courses/add"  title="{{'Become an Instructor'|translate}}" class="h5 text-muted navbar-btn">{{'Become an Instructor'| translate}}</a></li>
+				<li class="dropdown dropdown-img">					
+					<a ng-if="$root.auth.user_image_hash !== '' && $root.auth.user_image_hash !== null" href="" class="btn-sm dropdown-toggle user-img" data-toggle="dropdown"> 
+						<img  ng-src="{{$root.site_url}}img/small_thumb/User/{{$root.auth.user_image_hash}}" alt="[Image: {{$root.auth.displayname}}]" title="{{$root.auth.displayname}}" class="img-circle"/>
+						<span class="caret"></span>
+					</a>
+					<a ng-if="$root.auth.user_image_hash === '' || $root.auth.user_image_hash === null" href="" class="btn-sm dropdown-toggle" data-toggle="dropdown"> 
+						<img  ng-src="{{$root.site_url}}img/small_thumb/User/0.default.jpg" alt="[Image: {{$root.auth.displayname}}]" title="{{$root.auth.displayname}}" class="img-circle" />
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu pull-right">
+						<li><a href="#!/my-courses/learning" title="{{'My Courses'|translate}}" class="text-muted">{{'My Courses'|translate}}</a></li>
+						<li><a href="#!/users/change_password" title="{{'Change Password'|translate}}" class="text-muted">{{'Change Password'|translate}}</a></li>
+						<li><a href="#!/users/edit-profile" title="{{'Edit Profile'|translate}}" class="text-muted">{{'Edit Profile'|translate}}</a></li>
+						<li ng-if="$root.settings['site.enabled_plugins'].indexOf('Subscriptions') > -1" ><a href="#!/me/subscriptions" title="{{'My Subscriptions'|translate}}" class="text-muted">{{'My Subscriptions'|translate}}</a></li>
+						<li class="divider col-xs-12"></li>
+						<li ng-if="$root.settings['site.enabled_plugins'].indexOf('CourseCheckout') > -1"><a href="#!/transactions" title="{{'My Transactions'| translate}}">{{'My Transactions'| translate}}</a></li>
+						<li ng-if="$root.settings['site.enabled_plugins'].indexOf('Withdrawal') > -1"><a href="#!/user_cash_withdrawals" title="{{'Withdraw Fund Requests'| translate}}">{{'Withdraw Fund Requests'| translate}}</a></li>
+						<li ng-if='!contentInIframe'><a href="#!/users/logout" title="{{'Logout'|translate}}" class="text-muted">{{'Logout'|translate}}</a></li>
+					</ul>
+				</li>
+			</ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+	<div ng-hide="$root.isHome || $root.currentURL === '/subscribe/plans' || $root.currentURL === '/users/login' || $root.currentURL === '/users/signup?subscription_id' || $root.currentURL === '/users/forgot_password' || $root.currentURL === '/users/signup'">
+		 <div class="col-md-1 col-sm-2 row hidden-xs navbar-fixed-top hidden-sm" ng-hide="$root.isHome || $root.currentURL === '/{slug}/learn/{id}?lesson'">
+			<div class="navbar-btn clearfix list-group-item-text list-group-item-heading"></div>
+			<div class="navbar navbar-inverse hidden-xs">
+				<ul class="list-unstyled sidemenu">
+				  <li class="text-center h4">
+						<a href="#!/course/search"  tooltp-placement="right" tooltp="Home"><img src="assets/img/home.png" alt="[Image: {{'Home'|translate}}]" title="{{'Home'|translate}}" ng-if="$root.isAuth"></a>
+						<a href="#!/"  tooltp-placement="right" tooltp="Home"><img src="assets/img/home.png" alt="[Image: {{'Home'|translate}}]" title="{{'Home'|translate}}" ng-if="!$root.isAuth"></a>
+				   </li>
+				  <li class="text-center h4" ng-class="{'active': $root.activeMenu === 'dashboard'}" ng-if='isAuth'><a href="#!/my-courses/learning"  tooltp-placement="right" title="" tooltp="Dashboard" class="text-muted"><img src="assets/img/dashboard.png" alt="[Image: {{'Dashboard'|translate}}]" title="{{'Dashboard'|translate}}"></a></li>
+				  <li class="text-center h4" ng-class="{'active': $root.activeMenu === 'library' ||  !$root.activeMenu}"><a href="#!/courses/search"  tooltp-placement="right" title=""tooltp="Library"><img src="assets/img/library.png" alt="[Image: {{'Library'|translate}}]" title="{{'Library'|translate}}"></a></li>
+				  <li class="text-center h4" ng-class="{'active': $root.activeMenu === 'settings'}"><a href="#!/users/edit-profile"  tooltp-placement="right" title="" tooltp="Settings"><img src="assets/img/setting.png" alt="[Image: {{'Settings'|translate}}]" title="{{'Settings'|translate}}"></a></li>
+				</ul>
+				<div class="well-lg"></div>
+				<div class="well-lg"></div>
+				<div class="well-lg"></div>
+				<div class="well-lg"></div>
+				<div class="well-lg"></div>
+				<div class="well-lg"></div>
+				<div class="well-lg"></div>
+				<div class="well-lg"></div>
+				<div class="well-lg"></div>
+				<div class="well-sm"></div>
+			</div>
+		</div>
+		<div class="col-sm-12 col-xs-12 nav navbar-default navbar-fixed-top col-sm-offset-0 col-sm-offset-0 navbar-btn list-group-item-text list-group-item-heading" ng-class="{'col-md-11 col-md-offset-1 ': $root.currentURL !== '/{slug}/learn/{id}?lesson'}">
+			<div class="col-xs-12">
+				<div class="navbar-header">
+					<button data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle" type="button"><span class="sr-only">{{'toggle navigation'| translate}}</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+					<div class="navbar-btn list-group-item-heading clearfix hidden-xs"></div>
+					<div class="navbar-btn list-group-item-heading clearfix hidden-xs"></div>
+					<div class="navbar-btn clearfix hidden-xs"></div>
+					<div class="navbar-btn visible-xs"></div>
+					<p class="text-muted"> <i class="fa fa-arrow-left fa-lg fa-fw"></i> 
+						<a ng-if="$root.currentURL === '/course/{id}/{slug}'" href="#!/courses/search" title="{{'Library'|translate}}" class="h4 list-group-item-text"> <strong>{{'Library'| translate}}</strong></a>
+						<a ng-if="$root.currentURL !== '/course/{id}/{slug}' && isAuth" href="#!/courses/search" title="{{'Home'|translate}}" class="h4 list-group-item-text"> <strong>{{'Home'| translate}}</strong></a>
+						<a ng-if="$root.currentURL !== '/course/{id}/{slug}' && !isAuth" href="#!/" title="{{'Home'|translate}}" class="h4 list-group-item-text"> <strong>{{'Home'| translate}}</strong></a>
+					</p>
+				</div>
+				<nav class="collapse navbar-collapse navbar-right">
+					<ul class="nav navbar-nav text-center" ng-show="!isAuth">
+					  <li><a href="#!/page/help" title="{{'Help'| translate}}" class="h5 text-muted"><strong>{{'Help'| translate}}</strong></a></li>
+					  <li><a ng-href="#!/users/login" ng-click="modalLogin($event)" title="{{'Sign in'| translate}}" class="h5 text-muted navbar-btn">{{'Sign in'| translate}}</a></li>			  
+					  <li>			  
+						<div class="h3 list-group-item-text" ng-if="$root.settings['site.enabled_plugins'].indexOf('Subscriptions') > -1"><a href="#!/subscribe/plans" title="{{'Pricing'| translate}}" class="btn btn-success btn-lg"><strong>{{'Pricing'| translate}}</strong></a></div>
+						<div class="h3 list-group-item-text" ng-if="$root.settings['site.enabled_plugins'].indexOf('Subscriptions') === -1"><a href="#!/users/signup" title="{{'Signup'| translate}}" class="btn btn-success btn-lg"><strong>{{'Signup'| translate}}</strong></a></div>
+					  </li>
+					</ul>
+					<ul class="nav navbar-nav navbar-btn" ng-show="isAuth">
+					   <li ng-show="$root.auth.providertype === 'admin'" ><a href="ag-admin" title="{{'Admin Dashboard'|translate}}">{{'Admin Dashboard'| translate}}</a></li>
+					   <li ng-show="model.userDetails.is_teacher === 1 && $root.settings['site.enabled_plugins'].indexOf('Instructor') > -1 && $root.auth.providertype !== 'admin'"><a href="#!/my-courses/teaching" title="{{'Instructor Dashboard'|translate}}" class="">{{'Instructor Dashboard'| translate}}</a></li>
+					   <li ng-show="model.userDetails.is_teacher !== 1 && $root.settings['site.enabled_plugins'].indexOf('Instructor') > -1 && $root.auth.providertype !== 'admin'"><a href="#!/courses/add"  title="{{'Become an Instructor'|translate}}" class="">{{'Become an Instructor'| translate}}</a></li>
+						<li class="dropdown dropdown-img">
+							<a ng-if="$root.auth.user_image_hash !== '' && $root.auth.user_image_hash !== null" href="" class="btn-sm dropdown-toggle user-img" data-toggle="dropdown"> 
+								<img  ng-src="{{$root.site_url}}img/small_thumb/User/{{$root.auth.user_image_hash}}" alt="[Image: {{$root.auth.displayname}}]" title="{{$root.auth.displayname}}" class="img-circle"/>
+								<span class="caret"></span>
+							</a>
+							<a ng-if="$root.auth.user_image_hash === '' || $root.auth.user_image_hash === null" href="" class="btn-sm dropdown-toggle" data-toggle="dropdown"> 
+								<img  ng-src="{{$root.site_url}}img/small_thumb/User/0.default.jpg" alt="[Image: {{$root.auth.displayname}}]" title="{{$root.auth.displayname}}" class="img-circle" />
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu navbar-right">
+								<li><a href="#!/my-courses/learning" title="{{'My Courses'|translate}}" class="text-muted">{{'My Courses'|translate}}</a></li>
+								<li><a href="#!/users/change_password" title="{{'Change Password'|translate}}" class="text-muted">{{'Change Password'|translate}}</a></li>
+								<li><a href="#!/users/edit-profile" title="{{'Edit Profile'|translate}}" class="text-muted">{{'Edit Profile'|translate}}</a></li>
+								<li ng-if="$root.settings['site.enabled_plugins'].indexOf('Subscriptions') > -1" ><a href="#!/me/subscriptions" title="{{'My Subscriptions'|translate}}" class="text-muted">{{'My Subscriptions'|translate}}</a></li>
+								<li ng-if="$root.settings['site.enabled_plugins'].indexOf('CourseCheckout') > -1"><a href="#!/transactions" title="{{'My Transactions'| translate}}">{{'My Transactions'| translate}}</a></li>
+								<li ng-if="$root.settings['site.enabled_plugins'].indexOf('Withdrawal') > -1"><a href="#!/user_cash_withdrawals" title="{{'Withdraw Fund Requests'| translate}}">{{'Withdraw Fund Requests'| translate}}</a></li>
+								<li class="divider col-xs-12"></li>
+								<li ng-if='!contentInIframe'><a href="#!/users/logout" title="{{'Logout'|translate}}" class="text-muted">{{'Logout'|translate}}</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>

@@ -1,0 +1,92 @@
+<!--footer section start-->
+<footer id="footer" class="footer well clearfix">
+    <div class="container">
+      <div class="row"> 
+				<div class="col-xs-12">
+				  <div class="col-sm-4 text-muted">
+					<div class="row">
+					  <p class="h4"><a title="{{$root.settings['site.name']}}" href="#!/"><img title="{{$root.settings['site.name']}}" alt="[Image: {{$root.settings['site.name']}}]" src="assets/img/logo.png"></a></p>
+					  <p>{{'Our mission is to bring affordable, technology education to people everywhere, in order to help them achieve their dreams and change the world.'| translate}}</p>
+					</div>
+				  </div>
+				  <div class="col-sm-7 col-sm-offset-1">
+					<div class="row">
+					  <div class="col-sm-4 text-muted">
+						<dl>
+						  <dt class="navbar-btn">{{'Company'| translate}}</dt>
+						  <dd><a class="h5" title="{{'About'| translate}}" href="#!/page/about">{{'About'| translate}}</a></dd>
+						  <dd><a class="h5" title="{{'People'| translate}}" href="#!/page/people">{{'People'| translate}}</a></dd>
+						  <dd><a class="h5" title="{{'Leadership'| translate}}" href="#!/page/leadership">{{'Leadership'| translate}}</a></dd>
+						  <dd><a class="h5" title="{{'Careers'| translate}}" href="#!/page/careers">{{'Careers'| translate}}</a></dd>
+						  <dd><a class="h5" title="{{'Contact Us'| translate}}" href="#!/contactus">{{'Contact Us'| translate}}</a></dd>
+						</dl>
+					  </div>
+					  <div class="col-sm-4 text-muted">
+						<dl>
+						  <dt class="navbar-btn">{{'Community'| translate}}</dt>
+						  <dd><a class="h5" title="{{'Partners'| translate}}" href="#!/page/partners">{{'Partners'| translate}}</a></dd>
+						  <dd><a class="h5" title="{{'Community'| translate}}" href="#!/page/community">{{'Community'| translate}}</a></dd>
+						  <dd><a class="h5" title="{{'Programs'| translate}}" href="#!/page/programs">{{'Programs'| translate}}</a></dd>
+						  <dd><a class="h5" title="{{'Developers'| translate}}" href="#!/page/developers">{{'Developers'| translate}}</a></dd>
+						</dl>
+					  </div>
+					  <div class="col-sm-4 text-muted">
+						<dl>
+						  <dt class="navbar-btn">{{'More'| translate}}</dt>
+						  <dd><a class="h5" title="{{'Terms'| translate}}" href="#!/page/terms">{{'Terms'| translate}}</a></dd>
+						  <dd><a class="h5" title="{{'Privacy Policy'| translate}}" href="#!/page/privacy-policy">{{'Privacy Policy'| translate}}</a></dd>
+						  <dd><a class="h5" title="{{'Press'| translate}}" href="#!/page/press">{{'Press'| translate}}</a></dd>
+						  <dd><a class="h5" title="{{'PHP Development'| translate}}" href="#!/page/help">{{'Help'| translate}}</a></dd>
+						  <dd class="" ng-if="$root.settings['site.enabled_plugins'].indexOf('Translations') > -1">{{'Translate'| translate}}</dd>
+						  <dd oc-lazy-load="$root.loadTranslations" ng-if="$root.settings['site.enabled_plugins'].indexOf('Translations') > -1"><div ng-translate-language-select ></div></dd>
+						</dl>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			<div class="pull-left clearfix text-muted col-sm-9">
+			<div class="well-sm"></div>
+				<p>© {{cdate | date:'yyyy'}} <a href="#!" title="{{$root.settings['site.name']}}" class="text-muted">{{$root.settings['site.name']}}</a>, {{'All rights reserved.'|translate}} <a href="http://teamr.demo.agriya.com/" target="_blank" title="{{'Powered by Teamr'| translate}}"><img src="assets/img/teamr.png" alt="[Image: {{'Powered by Teamr'| translate}}]" title="{{'Powered by Teamr'| translate}}" ></a> ,{{' v'|translate}}{{$root.settings['site.version']}} {{'made in '|translate}}&nbsp;<a href="http://www.agriya.com/" target="_blank" title="{{'Agriya Web Development'| translate}}"><img src="assets/img/powered-by-agriya.png" alt="[Image: {{'Agriya Web Development'| translate}}]" title="{{'Agriya Web Development'| translate}}"></a>  <a href="http://www.cssilize.com/" target="_blank" title="{{'CSSilized by CSSilize, PSD to XHTML Conversion'| translate}}"> <img src="assets/img/cssilize.png" alt="[Image: {{'CSSilized by CSSilize, PSD to XHTML Conversion'| translate}}]" title="{{'CSSilized by CSSilize, PSD to XHTML Conversion'| translate}}"> </a></p>
+			</div>
+			<div class="col-sm-3">
+				<ul class="list-inline text-muted navbar-right">
+				  <li class="navbar-btn clearfix"> 
+					<span ng-show="$root.settings['social_networks.facebook']">
+					  <a  href="{{$root.settings['social_networks.facebook']}}" target="_blank" class="text-muted"><span class="fa-stack fa-sm"><i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></a>
+					</span>
+					<span ng-show="$root.settings['social_networks.twitter']">
+					  <a href="{{$root.settings['social_networks.twitter']}}" target="_blank" class="text-muted"><span class="fa-stack fa-sm"> <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a>
+					</span>
+					<span ng-show="$root.settings['social_networks.linkedin']">
+					  <a href="{{$root.settings['social_networks.linkedin']}}" target="_blank" class="text-muted"><span class="fa-stack fa-sm"> <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></span></a>
+					</span>
+					<span ng-show="$root.settings['social_networks.foursquare']">
+					  <a href="{{$root.settings['social_networks.foursquare']}}" target="_blank" class="text-muted"><span class="fa-stack fa-sm"> <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-foursquare fa-stack-1x fa-inverse"></i></span></a>
+					</span>
+					<span ng-show="$root.settings['social_networks.pinterest']">
+					  <a href="{{$root.settings['social_networks.pinterest']}}" target="_blank" class="text-muted"><span class="fa-stack fa-sm"> <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-pinterest fa-stack-1x fa-inverse"></i></span></a>
+					</span>
+					<span ng-show="$root.settings['social_networks.flickr']">
+					  <a href="{{$root.settings['social_networks.flickr']}}" target="_blank" class="text-muted"><span class="fa-stack fa-sm"> <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-flickr fa-stack-1x fa-inverse"></i></span></a>
+					</span>
+					<span ng-show="$root.settings['social_networks.instagram']">
+					  <a href="{{$root.settings['social_networks.instagram']}}" target="_blank" class="text-muted"><span class="fa-stack fa-sm"> <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-instagram fa-stack-1x fa-inverse"></i></span></a>
+					</span>
+					<span ng-show="$root.settings['social_networks.tumblr']">
+					  <a href="{{$root.settings['social_networks.tumblr']}}" target="_blank" class="text-muted"><span class="fa-stack fa-sm"> <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-tumblr fa-stack-1x fa-inverse"></i></span></a>
+					</span>
+					<span ng-show="$root.settings['social_networks.vimeo']">
+					  <a href="{{$root.settings['social_networks.vimeo']}}" target="_blank" class="text-muted"><span class="fa-stack fa-sm"> <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-vimeo-square fa-stack-1x fa-inverse"></i></span></a>
+					</span>
+					<span ng-show="$root.settings['social_networks.youtube']">
+					  <a href="{{$root.settings['social_networks.youtube']}}" target="_blank" class="text-muted"><span class="fa-stack fa-sm"> <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-youtube-play fa-stack-1x fa-inverse"></i></span></a>
+					</span>
+					<span ng-show="$root.settings['social_networks.google_plus']">
+					  <a href="{{$root.settings['social_networks.google_plus']}}" target="_blank" class="text-muted"><span class="fa-stack fa-sm"> <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-google fa-stack-1x fa-inverse"></i></span></a>
+					</span>
+				  </li>
+				</ul>
+			</div>
+	  </div>
+    </div>
+</footer>
