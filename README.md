@@ -1,6 +1,6 @@
 # Teamr
 
-Teamr is an open source online training platform similar to Treehouse Clone script to make websites concerning online training marketplaces. It is written in AngularJS with REST API for high performance in mind.
+Teamr, part of Teachr Suite (Trainr, Learnr, Teamr, Graspr, Skillr) is an open source online training platform that is capable to run sites similar to Treehouse. It is written in AngularJS with REST API for high performance in mind.
 
 > This is project is part of Agriya Open Source efforts. Teamr was originally a paid script and was selling around 11000 Euros. It is now released under dual license (OSL 3.0 & Commercial) for open source community benefits.
 
@@ -8,9 +8,23 @@ Teamr is an open source online training platform similar to Treehouse Clone scri
 
 ## Support
 
-Teamr is an open source online training project. Full commercial support (commercial license, customization, training, etc) are available through [Teamr platform](http://teamr.demo.agriya.com/#!/)
+Teamr is an open source online training project. Full commercial support (commercial license, customization, training, etc) are available through [Teamr platform support](https://www.agriya.com/products/udemy-clone
 
 Theming partner [CSSilize for design and HTML conversions](http://cssilize.com/)
+
+## Teachr Suite
+
+Agriya Teachr Suite is a open source online training platform that caters to Trainr, Learnr, Teamr, Graspr, Skillr.
+
+* Trainr - trainr online training like or similar to Khanacademy.
+
+* Learnr - learnr flourishing e-learning business model like Udacity.
+
+* Teamr - teamr online training marketplace like or simiar to treehous.
+
+* Skillr - skillr online learning concept like or similar to Skillshare.
+
+* Graspr - graspr is highly capable of rendering learning platform like or similar to Coursera.
 
 ## Features
 
